@@ -4,9 +4,11 @@ var request = require("request");
 var Push = require("pushover-notifications");
 var intervalObj;
 
-const model = "MHP23LL/A"; // 12.9 inch iPad Pro 2021 (M1)
+const model = "MHP13LL/A"; // Space Gray 12.9 inch iPad Pro 2021 (M1)
+const friendlyName = "Space Gray";
+// const model = "MHP23LL/A"; // Silver 12.9 inch iPad Pro 2021 (M1)
+// const friendlyName = "Silver";
 // const model = "MHN13LL/A"; // 11 inch iPad Pro 2021 (M1)
-const friendlyName = "iPad";
 const appleStoreBuyUrl =
   "https://www.apple.com/shop/buy-ipad/ipad-pro/12.9-inch-display-1tb-silver-wifi-cellular";
 const zipcode = "76502";
@@ -54,7 +56,7 @@ function pushStore(store) {
       setTimeout(() => {
         intervalObj = setInterval(() => {
           callAPI(apiUrl);
-        }, 3000);
+        }, 10000);
       }, 60000);
     }
 
@@ -64,6 +66,8 @@ function pushStore(store) {
 
 function handleAPIResponse(res) {
   // console.log("body", res.body.content.pickupMessage.stores);
+
+  // console.log(`Checking for ${friendlyName}`);
   const stores = res.body.content.pickupMessage.stores;
 
   var storesWithProductAvailable = stores.filter(
