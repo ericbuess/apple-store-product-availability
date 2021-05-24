@@ -6,15 +6,15 @@ var intervalObj;
 
 const model = "MHP23LL/A"; // 12.9 inch iPad Pro 2021 (M1)
 // const model = "MHN13LL/A"; // 11 inch iPad Pro 2021 (M1)
-const friendlyName = "iPad Pro 2021 M1";
+const friendlyName = "iPad";
 const appleStoreBuyUrl =
   "https://www.apple.com/shop/buy-ipad/ipad-pro/12.9-inch-display-1tb-silver-wifi-cellular";
 const zipcode = "76502";
 
 const apiUrl = `https://www.apple.com/shop/fulfillment-messages?pl=true&parts.0=${model}&location=${zipcode}`;
 
-const PUSHOVER_TOKEN = "[your-token]"; // os.getenv('PUSHOVER_TOKEN')
-const PUSHOVER_USER = "[your-token]"; // me | os.getenv('PUSHOVER_USER')
+const PUSHOVER_TOKEN = "your-token"; // os.getenv('PUSHOVER_TOKEN')
+const PUSHOVER_USER = "your-token"; // me | os.getenv('PUSHOVER_USER')
 
 function pushStore(store) {
   console.log(`${friendlyName} is now available at a location near ${zipcode}`);
